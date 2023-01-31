@@ -1,0 +1,9 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/avenable/CSCI101-0BC-SP23-Demos/01_31_23",
+            "binaryPath": "/home/avenable/CSCI101-0BC-SP23-Demos/01_31_23/main2",
+            "binaryArgs": []
+        }
+    ]
+}
