@@ -7,6 +7,8 @@
 using namespace std;
 
 int getPositiveNumber(string prompt);
+double getPositiveNumber();
+
 void resetStream();
 int count();
 const double PI = 3.14;
@@ -36,8 +38,8 @@ int main()
         cout << "That's not what I asked for!" << endl;
     }
 
-    int x = getPositiveNumber(str);
-    cout << str << endl;
+    int x = getPositiveNumber("Enter a positive number");
+    // cout << getPositiveNumber("Enter a positive number") << endl;
 
     // set up a loop that runs 10 times. each time call count and print the return value.
 
