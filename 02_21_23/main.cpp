@@ -28,7 +28,9 @@ int main()
     printColor(myColor);
     std::cout << std::endl;
     std::cout << "My color is " << colorToString(myColor) << std::endl;
-
+    std::string str1 = "Hello";
+    std::string str2 = "there";
+    str1 + " " + str2;
     return 0;
 }
 
