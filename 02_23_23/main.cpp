@@ -23,6 +23,9 @@ const colorType colors[] = {BLUE,
                             ORANGE};
 
 void inputArray(int[], int);
+void inputTable(int[][10], int, int);
+void selectionSort(int[], int);
+void findLargest(int[], int, int &);
 
 int main()
 {
@@ -36,7 +39,14 @@ int main()
     {
         nums[i] = 0;
     }
-    inputArray(nums, 10);
+    inputArray(nums, MAX_SIZE);
+    for (int i = 0; i < MAX_SIZE; i++)
+    {
+        std::cout << nums[i] << std::endl;
+    }
+    std::cout << std::endl
+              << std::endl;
+    selectionSort(nums, MAX_SIZE);
     for (int i = 0; i < MAX_SIZE; i++)
     {
         std::cout << nums[i] << std::endl;
@@ -74,22 +84,7 @@ int main()
     {
         table[i][col] = 0;
     }
-    for (int row = 0; row < 10; row++)
-    {
-        for (int col = 0; col < 10; col++)
-        {
-            std::cout << "Enter a number: ";
-            std::cin >> table[row][col];
-            std::cout << std::endl;
-            while (!std::cin)
-            {
-                resetStream();
-                std::cout << "Enter a number: ";
-                std::cin >> table[row][col];
-                std::cout << std::endl;
-            }
-        }
-    }
+    inputTable(table, 10, 10);
 
     // lecture activity add code to output. There should be a space between each item in a row and a \n in between each row
 
@@ -129,6 +124,50 @@ void inputArray(int list[], int numItems)
             std::cout << "Enter number " << i + 1 << ": ";
             std::cin >> list[i];
             std::cout << std::endl;
+        }
+    }
+}
+
+void inputTable(int table[][10], int numRows, int numCols)
+{
+    for (int row = 0; row < numRows; row++)
+    {
+        for (int col = 0; col < numCols; col++)
+        {
+            std::cout << "Enter a number: ";
+            std::cin >> table[row][col];
+            std::cout << std::endl;
+            while (!std::cin)
+            {
+                resetStream();
+                std::cout << "Enter a number: ";
+                std::cin >> table[row][col];
+                std::cout << std::endl;
+            }
+        }
+    }
+}
+
+void selectionSort(int list[], int numItems)
+{
+    int largestPos;
+    for (int i = numItems; i > 0; i--)
+    {
+        findLargest(list, i, largestPos);
+        int temp = list[largestPos];
+        list[largestPos] = list[i - 1];
+        list[i - 1] = temp;
+    }
+}
+
+void findLargest(int list[], int numItems, int &pos)
+{
+    pos = 0;
+    for (int i = 1; i < numItems; i++)
+    {
+        if (list[i] > list[pos])
+        {
+            pos = i;
         }
     }
 }
